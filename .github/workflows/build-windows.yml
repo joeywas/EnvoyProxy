@@ -1,0 +1,16 @@
+name: build envoy proxy on windows
+
+on:
+  push
+
+jobs:
+  build-job:
+    runs-on: windows-2022
+    container: 
+      image: envoyproxy/envoy-build-windows2019:8a4d6f993e7b93d466cf26a09466d320c62398e2
+    steps:
+      - name: Get list of files
+        run: |
+          ls c:\
+          ls d:\
+          
