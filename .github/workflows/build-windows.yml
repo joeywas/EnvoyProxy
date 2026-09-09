@@ -12,6 +12,7 @@ jobs:
         uses: philips-software/run-windows-docker-container-action@v2.0.1
         with:
           image: docker.io/envoyproxy/envoy-build-windows2019:8a4d6f993e7b93d466cf26a09466d320c62398e2
+          extra_args: --isolation=hyperv
           entrypoint: powershell.exe
           run: >-
             gci .
