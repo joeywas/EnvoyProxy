@@ -5,12 +5,13 @@ on:
 
 jobs:
   build-job:
-    runs-on: ubuntu-latest
-    container: 
-      image: envoyproxy/envoy-build-windows2019:8a4d6f993e7b93d466cf26a09466d320c62398e2
+    runs-on: windows-2022
+
     steps:
-      - name: Get list of files
-        run: |
-          ls c:\
-          ls d:\
-          
+      - name: Execute-in-windows-docker-container
+        uses: philips-software/run-windows-docker-container-action@v2.0.1
+        with:
+          image: docker.io/envoyproxy/envoy-build-windows2019:8a4d6f993e7b93d466cf26a09466d320c62398e2
+          entrypoint: powershell.exe
+          run: >-
+            gci .
